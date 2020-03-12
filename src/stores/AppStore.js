@@ -227,6 +227,7 @@ export default types
 
     /* eslint-disable no-unused-vars */
     function showModal(message, type = "warning") {
+      // eslint-disable-line no-unused-vars
       InfoModal[type](message);
 
       // InfoModal.warning("You need to label at least something!");
