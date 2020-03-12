@@ -219,12 +219,25 @@ export default types
       if (taskObject && !Utils.Checkers.isString(taskObject.data)) {
         taskObject = {
           ...taskObject,
-          [taskObject.data]: JSON.stringify(taskObject.data),
+          data: JSON.stringify(taskObject.data),
         };
       }
       self.task = Task.create(taskObject);
     }
-
+    
+    function assignTasks(tasksObject) {
+      self.tasks = tasksObject.map(taskObject => {
+        if (taskObject && !Utils.Checkers.isString(taskObject.data)) {
+          taskObject = {
+            ...taskObject,
+            data: JSON.stringify(taskObject.data),
+          };
+        }
+        
+        return Task.create(taskObject);
+      });
+    }
+    
     /* eslint-disable no-unused-vars */
     function showModal(message, type = "warning") {
       InfoModal[type](message);
