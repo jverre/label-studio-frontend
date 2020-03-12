@@ -20,7 +20,9 @@ export default types
      * Task with data, id and project
      */
     task: types.maybeNull(Task),
-
+    
+    tasks: types.maybeNull(types.array(Task)),
+    
     project: types.maybeNull(Project),
 
     /**
